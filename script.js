@@ -41,4 +41,8 @@ function initializedGame() {
     });
     lettersContainer.appendChild(button);
   }
+
+  // Clear any previous win/lose message
+  const messageContainer = document.querySelector('.message');
+  messageContainer.innerText = '';
 }
