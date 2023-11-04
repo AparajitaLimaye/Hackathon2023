@@ -21,6 +21,7 @@ function selectRandomWord() {
 
 function initializedGame() {
   wordToGuess = selectRandomWord();
+  //console.log(wordToGuess);
   guessedLetters = Array(wordToGuess.length).fill('_');
 
   updateWordDisplay();
@@ -35,7 +36,11 @@ function initializedGame() {
     const button = document.createElement('button');
     button.innerText = letter;
     button.addEventListener('click', function() {
-      handleGuess(letter);
+      var check = handleGuess(letter);
+      if (check)
+        button.style.backgroundColor = "green";
+      else
+        button.style.backgroundColor = "gray";
     });
     lettersContainer.appendChild(button);
   }
@@ -51,6 +56,10 @@ function updateWordDisplay() {
 }
 
 function handleGuess(letter) {
+  var rT;
+  console.log("Guessed Letter: " + wordToGuess);
+  console.log("Letter: " + letter);
+  
   // If the letter has already been guessed, do nothing
   if (guessedLetters.includes(letter)) {
     return;
@@ -65,7 +74,12 @@ function handleGuess(letter) {
 
   // If the letter is not in the hidden word, increment the wrong guesses count and update the Melting Snowman graphic
   if (!wordToGuess.includes(letter)) {
+    rT = false;
     wrongGuesses++;
+  }
+  else
+  {
+    rT = true;
   }
 
   // Update the word display
@@ -73,6 +87,8 @@ function handleGuess(letter) {
 
   // Check if the game has been won or lost
   checkWinOrLose();
+
+  return rT;
 }
 
 
@@ -88,8 +104,6 @@ function checkWinOrLose() {
   } else if (wrongGuesses >= maxWrongGuesses) {
     const messageContainer = document.querySelector('.message');
     messageContainer.innerText = `You lose! The word was "${wordToGuess}".`;
-    const meltingSnowmanContainer = document.querySelector('.MeltingSnowman');
-    meltingSnowmanContainer.innerHTML = `<img src="images/gameover.png" alt="gameover">`;
     const letterButtons = document.querySelectorAll('.letters button');
     letterButtons.forEach(button => {
       button.disabled = true;

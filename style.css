@@ -53,6 +53,16 @@ body {
   cursor: pointer;
 }
 
+.letters button:active {
+  margin: 5px;
+  padding: 10px;
+  font-size: 1.2rem;
+  border: none;
+  background-color: darkblue;
+  color: #fff;
+  cursor: pointer;
+}
+
 .message {
   font-size: 1.5rem;
   margin: 20px;
