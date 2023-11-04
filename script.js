@@ -46,3 +46,8 @@ function initializedGame() {
   const messageContainer = document.querySelector('.message');
   messageContainer.innerText = '';
 }
+
+function updateWordDisplay() {
+  const wordContainer = document.querySelector('.word');
+  wordContainer.innerText = guessedLetters.join(' ');
+}
