@@ -1,13 +1,4 @@
-const words = [
-  'JAVASCRIPT',
-  'HTML',
-  'CSS',
-  'NODE',
-  'REACT',
-  'ANGULAR',
-  'JQUERY',
-  'VUE'
-];
+const words = ['JAVASCRIPT', 'HTML', 'CSS', 'NODE', 'REACT', 'ANGULAR', 'JQUERY', 'VUE', 'clue', 'anger', 'noise', 'panic', 'weak', 'bay', 'cower', 'crusade', 'operation', , 'speaker', 'green', 'pollution', 'cruelty', 'palm', 'cathedral', 'marsh', 'virtue', 'waist', 'paradox', 'protect', 'publicity', 'behavior', 'mold', 'classroom', 'recover', 'beginning', 'trail', 'bloody', 'fire', 'quotation', 'sustain', 'build', 'afford', 'result', 'warn', 'track', 'window', 'red', 'monopoly', 'offspring', 'pluck', 'lobby', 'pick', 'save', 'talkative', 'poor', 'argument'];
 
 const maxWrongGuesses = 6;
 var wordToGuess = '';
