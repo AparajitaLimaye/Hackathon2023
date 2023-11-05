@@ -30,6 +30,18 @@ function giveCategory(myValue)
             category = clothingCategory;
             document.getElementById("feedback").innerHTML = "Correct!"; 
             break;
+        case 'ELECTRONICS':
+            category = electronicsCategory;
+            document.getElementById("feedback").innerHTML = "Correct!"; 
+            break;    
+        case 'HOME DECOR':
+            category = homeDecorCategory;
+            document.getElementById("feedback").innerHTML = "Correct!"; 
+            break;
+        case 'TOOLS':
+            category = toolsCategory;
+            document.getElementById("feedback").innerHTML = "Correct!"; 
+            break;  
         default:
             document.getElementById("feedback").innerHTML = "Incorrect! Please enter one of the following: \n" + amazonGenre; 
             inCategory = false;
