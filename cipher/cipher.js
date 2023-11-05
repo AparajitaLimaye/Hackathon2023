@@ -1,13 +1,21 @@
 var choice = "";
 var phrase = "";
 var encoded = "";
+var shiftedAmount = 0;
 
-const options = ["bacon"];
+const options = ["bacon", "caesar"];
 const phrases = ["sunhacks", "who are you", "what", "solve this", "another one", "hello"];
+const phrasesCaesar = [" who is this", "can I sleep", "pick a game", "run into a whale"];
 
 function pickCipher() {
-    choice = options[Math.floor(Math.random() * 1)];
-    phrase = phrases[Math.floor(Math.random() * 6)];
+    choice = options[Math.floor(Math.random() * 2)];
+    if (choice == "bacon") {
+        phrase = phrases[Math.floor(Math.random() * 6)];
+    }
+    else if (choice == "caesar") {
+        phrase = phrasesCaesar[Math.floor(Math.random() * 4)];
+    }
+    phrase = phrase.toLowerCase();
 
     // use bacon cipher
     if (choice == "bacon") {
@@ -15,6 +23,8 @@ function pickCipher() {
         phrase = phrase.replace(/\s+/g, '');
         //alert(phrase);
         baconCipher();
+    } else if (choice == "caesar") {
+        caesarCipher();
     }
 }
 
@@ -46,6 +56,31 @@ function baconCipher() {
     //alert(encoded);
 
     document.getElementById("cipher").innerHTML = encoded;
+}
+
+function caesarCipher() {
+    // shift the alphabet by a random amount
+    shiftedAmount = Math.floor(Math.random() * 9) + 1;
+
+    // [97 - 122]
+    for (let i = 0; i < phrase.length; i++) {
+        var temp = phrase.charAt(i).charCodeAt(0);
+        if (temp + shiftedAmount > 122) {
+            temp = temp + shiftedAmount - 26;
+        } else if (temp == 32) {
+            // space, do nothing
+        } else {
+            temp += shiftedAmount;
+        }
+
+        // add back to cipher
+        encoded += String.fromCharCode(temp);
+    }
+
+    //alert(phrase);
+
+    document.getElementById("cipher").innerHTML = encoded;
+
 }
 
 // when the user presses enter on the input
@@ -123,7 +158,9 @@ toggleButton.addEventListener("click", function () {
         // If the text is not visible, show it
         displayText.style.display = "block";
         if (choice == "bacon") {
-            displayText.innerHTML = "Consider how the text might relate to binary.";
+            displayText.innerHTML = "Consider how the text might relate to binary";
+        } else if (choice == "caesar") {
+            displayText.innerHTML = "This is a very basic cipher, where the structure of the sentence remains intact"
         }
         isTextVisible = true;
     }
@@ -141,6 +178,8 @@ toggleButton2.addEventListener("click", function () {
             // Generate the table HTML and insert it into the element
             const tableHTML = generateTable(baconTable);
             displayText2.innerHTML = tableHTML;
+        } else if (choice == "caesar") {
+            displayText2.innerHTML = "The alphabet has been shifted by " + shiftedAmount + "; consider shifting every letter by -" + shiftedAmount;
         }
         isTextVisible2 = true;
     }
