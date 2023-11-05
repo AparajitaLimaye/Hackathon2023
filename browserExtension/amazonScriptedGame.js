@@ -4,6 +4,10 @@ var domain = "";
 chrome.tabs.getSelected(null, function(tab) {
     currentURL = tab.url;
     var urlObject = new URL(currentURL);
-    var domainName = urlObject.hostname;
-    document.getElementById("test").innerHTML = domainName;
+    domain = urlObject.hostname;
+    document.getElementById("test").innerHTML = domain;
+
+    if (domain === "www.amazon.com") {
+        // we can work here I guess
+    }
 });
