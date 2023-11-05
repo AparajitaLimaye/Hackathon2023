@@ -38,6 +38,52 @@
     margin-top: 15px;
 }
 
+:root {
+    --background-light: #FFFFFF;
+    /* Light mode background color */
+    --text-light: #000000;
+    /* Light mode text color */
+    --background-dark: #000000;
+    /* Dark mode background color */
+    --text-dark: #FFFFFF;
+    /* Dark mode text color */
+}
+
 body {
-    background-color: #ffffff;
+    background-color: var(--background-light);
+    /* Set the initial background color */
+    color: var(--text-light);
+    /* Set the initial text color */
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-light: #FFFFFF;
+        --text-light: #000000;
+        --background-dark: #000000;
+        --text-dark: #FFFFFF;
+    }
+
+    body {
+        /* Change to dark mode background color */
+        background-color: var(--background-dark);
+        /* Change to dark mode text color */
+        color: var(--text-dark);
+    }
+
+    .userBtn {
+        background-color: gray;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(255, 255, 255, 0.2);
+        color: white;
+        border: none;
+        padding: 7px 15px;
+        margin-left: 5px;
+        margin-right: 5px;
+        cursor: pointer;
+    }
+
+    .userBtn:hover {
+        box-shadow: 0 2px 4px rgba(255, 255, 255, 0.2);
+    }
 }
