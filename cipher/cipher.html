@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>solve the cipher</title>
+    <link rel="stylesheet" type="text/css" href="cipher.css">
+</head>
+
+<body>
+    <div class="centered">
+        <div class="content">
+            <h2 class="text">Decode the following cipher</h2>
+            <p class="text text2" id="cipher"></p>
+            <input type="text" id="textBox" placeholder="Decode text..." onkeydown="handleKeyPress(event)">
+            <p class="text textFancy" id="results"></p>
+            <div class="content">
+                <button class="buttons" id="toggleButton">Tip 1</button>
+                <div class="text textSpacing">
+                    <p id="displayText"></p>
+                </div>
+                <button class="buttons" id="toggleButton2">Tip 2</button>
+                <div class="text textSpacing">
+                    <p id="displayText2"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="cipher.js"></script>
+
+</body>
+
+</html>
