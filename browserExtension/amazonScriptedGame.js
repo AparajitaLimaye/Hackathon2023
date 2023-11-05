@@ -1,8 +1,9 @@
-var currentWebsiteName = window.location.hostname;
-console.log(currentWebsiteName);
-var currentURL;
+var currentURL = "";
+var domain = "";
+
 chrome.tabs.getSelected(null, function(tab) {
     currentURL = tab.url;
-    document.getElementById("test").innerHTML = currentURL;
-    //hello 
+    var urlObject = new URL(currentURL);
+    var domainName = urlObject.hostname;
+    document.getElementById("test").innerHTML = domainName;
 });
