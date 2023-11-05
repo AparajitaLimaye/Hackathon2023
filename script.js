@@ -103,5 +103,12 @@ function checkWinOrLose() {
   }
 }
 
+var myValue;
+function submit()
+{
+  myValue = document.getElementById("myTextArea").value;
+  alert(myValue);
+}
+
 // Initialize the game when the page loads
 window.addEventListener('load', initializedGame);

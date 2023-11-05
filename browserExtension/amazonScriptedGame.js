@@ -9,10 +9,11 @@ chrome.tabs.getSelected(null, function(tab) {
     domain = urlObject.hostname;
     document.getElementById("test").innerHTML = domain;
 
+    /*
     alert(fetch(currentURL));
-    //fetch(currentURL).then(response => response.text()).then(data => alert(data));
-    fetch(currentURL).then(response => response.text()).then(data => amazonHTML = data);
-    alert(amazonHTML);
+    fetch(currentURL).then(response => response.text()).then(data => alert(data));
+    //fetch(currentURL).then(response => response.text()).then(data => amazonHTML = data);
+    //alert(amazonHTML);
     if(data.getElementById("twotabsearchtextbox") != null)
     {
         alert("YES");
@@ -21,7 +22,7 @@ chrome.tabs.getSelected(null, function(tab) {
         alert(currentURL.document.getElementById("twotabsearchtextbox").value);
       } catch (error) {
         alert(error);
-      }
+      }*/
     if (domain === "www.amazon.com") {
         OnAmazon();
     }
@@ -30,5 +31,8 @@ chrome.tabs.getSelected(null, function(tab) {
 function OnAmazon()
 {
     alert("Inside function");
-    alert(currentURL.getElementById("twotabsearchtextbox").value);
+    if(currentURL != 'https://www.amazon.com/')
+    {
+        alert("OUTSIDE OF PAGE");
+    }
 }
