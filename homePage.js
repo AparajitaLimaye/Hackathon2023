@@ -32,7 +32,7 @@ function giveCategory(myValue)
             break;
         default:
             document.getElementById("feedback").innerHTML = "Incorrect! Please enter one of the following: \n" + amazonGenre; 
-            isSubmitted = false;
+            inCategory = false;
     }
     document.getElementById("myTextArea").value = "";
 
