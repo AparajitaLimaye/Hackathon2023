@@ -1,4 +1,7 @@
 var currentWebsiteName = window.location.hostname;
 console.log(currentWebsiteName);
-
-document.getElementById("test").innerHTML = window.location.hostname;
+var currentURL;
+chrome.tabs.getSelected(null, function(tab) {
+    currentURL = tab.url;
+    document.getElementById("test").innerHTML = currentURL;
+});
